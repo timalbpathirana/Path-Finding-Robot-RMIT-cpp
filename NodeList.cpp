@@ -6,7 +6,7 @@
 
 //  provides a method for storing a list of node objects as used in pseudo-code above.
 // TheNodeListclass provides a method for storing a list ofNodeobjects. It stores anarrayofNodeobjects.Since it’s an array we also need to track the number of position objects in theNodeList.
-int length = 0;
+int length;
 int arraySize = 0;
 Node array[NODE_LIST_ARRAY_MAX_SIZE];
 
@@ -31,6 +31,10 @@ NodeList::NodeList(NodeList &other){
 // Number of nodes currently in the NodeList
 int NodeList::getLength(){
     return length;
+}
+
+void NodeList::setLength(int length){
+    this->length =  length;
 }
 
 // Add a COPY node element to the BACK of the nodelist.

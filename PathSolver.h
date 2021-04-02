@@ -43,9 +43,10 @@ private:
 
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
-    /*     
-                                         */
     
+    void findStartNode (Env env);
+   // Node* findGoalNode (Env env);
+    void checkNodesPlace(char charValue, Env env);
     
 };
 

@@ -1,6 +1,11 @@
 #include "PathSolver.h"
 #include <iostream>
 
+    
+int startRowCount = 0;
+int startColCount = 0;
+int goalRowCount = 0;
+int goalColCount = 0;
 
 //that executes the forward search and backtracking algorithms.
 
@@ -17,79 +22,114 @@ PathSolver::~PathSolver(){
 
 void PathSolver::forwardSearch(Env env){
     // TODO 
-
-    // //Making the closed list and the Open list from NodeList class
-    // NodeList* openList;
-    // NodeList* closedList;
-    // // initialising the start node 
-    // int currentRow = 5;
-    // int currentCol = 1;
-    // int currentDistanceTravelled = 0;
-    // Node startNode(currentRow, currentCol, currentDistanceTravelled);
-    // Node currentNode(currentRow, currentCol, currentDistanceTravelled);
-
     
-    // // initialising the goal node 
-    // // int goalRow = 11;
-    // // int goalCol = 5;
+    char* arrayStartPtr = &(env[0][0]);
+    char* arrayGoalPtr = &(env[0][0]);
+
+// Checking the start node and get the coordinates    
+    for (int row = 0; row < ENV_DIM; row++)
+        {
+            for (int col = 0; col < ENV_DIM; col++)
+            {
+                if (env[row][col] == SYMBOL_START)
+                {
+                   arrayStartPtr = &(env[row][col]);
+                   startColCount = col;
+                   startRowCount = row;
+                }  
+            }   
+        }
 
 
-    // // added start point to open list and closed list 
-    // openList->addElement(&startNode);
-    // closedList->addElement(&startNode);
-
-
-
-    // //Searching for all the possible nodes to go from current node
-    // //search to right
-    // if (env[currentCol + 1][currentRow] != '.') {
-        
-    //     Node nodeObj(startNode.getRow(), startNode.getCol() + 1, startNode.getDistanceTraveled() + 1);
-    //     openList->addElement(&nodeObj);
-        
-       
-    // };
-    // //search to left
-    // if (env[currentCol - 1][currentRow] != '.'){
-    //     Node nodeObj(currentRow, currentCol - 1, currentDistanceTravelled + 1);
-    //     openList->addElement(&nodeObj);
-        
-    // };
-    // //search to up
-    // if (env[currentCol][currentRow + 1] != '.') {
-    //     Node nodeObj(currentRow - 1, currentCol, currentDistanceTravelled + 1);
-    //     openList->addElement(&nodeObj);
-        
-    // };
-    // //search to down
-    // if (env[currentCol][currentRow - 1] != '.') {
-    //     Node nodeObj(currentRow + 1, currentCol, currentDistanceTravelled + 1);
-    //     openList->addElement(&nodeObj);
-        
-    // };
-
-    // std::cout << ' ' << std::endl;
-    // std::cout << "These are the characters printing from PathSolver.cpp" << std::endl;
-    // std::cout << env[currentCol + 1][currentRow] << std::endl;
-    // std::cout << env[currentCol - 1][currentRow] << std::endl;
-    // std::cout << env[currentCol][currentRow + 1] << std::endl;
-    // std::cout << env[currentCol][currentRow - 1] << std::endl;
-
+//  Checking the goal node and get the coordinates
+    for (int row = 0; row < ENV_DIM; row++)
+        {
+            for (int col = 0; col < ENV_DIM; col++)
+            {
+                if (env[row][col] == SYMBOL_GOAL)
+                {
+                   arrayGoalPtr = &(env[row][col]);
+                   goalColCount = col;
+                   goalRowCount = row;
+                }   
+            }   
+        }
     
-    // //printing the neighbour paths to go. 
-    
-    // for (int i = 0; i < openList->getLength(); i++){
-    //     Node* getB = openList->getNode(i);
-    //     std::cout << getB->getRow() << ",";
-    //     std::cout << getB->getCol() << ",";
-    //     std::cout << getB->getDistanceTraveled() << std::endl;
-    // }
-    
-   
+    // Printing the start node and the goal node
+    std::cout << "This is the start pointer:" << *arrayStartPtr << "and the coordinates are: " << startRowCount << ":" << startColCount <<'\n';
 
+    std::cout << "This is the Goal pointer:" << *arrayGoalPtr << "and the coordinates are: " << goalRowCount << ":" << goalColCount <<'\n';
+
+    // std::cout << "Checking the right node:" << *(startArrayPtr + 1) << '\n';
+
+    // std::cout << "Checking the down node:" << *(startArrayPtr + ENV_DIM) << '\n';
+
+    // Making Nodes and put those start and goal as nodes
+    Node* startNode  = new Node(startRowCount,startColCount, 0);
+    Node goalNode(goalRowCount,goalColCount, INFINITY);
+
+    // make a pointer to the memory address of startNode
+    //Node* startNodePtr = &startNode; 
+    //Node* goalNodePtr = &goalNode;
+
+    // Making Open list and Closed List using NodeList class
+    NodeList openList;
+    openList.setLength(0);
+    NodeList closeist;
+
+    // Adding start node to the Open node list to begin the search
+    openList.addElement(startNode);
+    
+    // Searching for path from current node
+
+    //Searching for right
+    if(*(arrayStartPtr + 1) != SYMBOL_WALL ) {
+        openList.addElement(startNode + 1);
+
+    // Searching for left
+    if (*(arrayStartPtr - 1) != SYMBOL_WALL){
+        openList.addElement(startNode - 1);
+    }
+
+    // Searching for bottom
+    if(*(arrayStartPtr + ENV_DIM) != SYMBOL_WALL) {
+        openList.addElement(startNode + ENV_DIM);
+    }
+
+    // Searching for top
+    if(*(arrayStartPtr - ENV_DIM) != SYMBOL_WALL) {
+        openList.addElement(startNode - ENV_DIM);
+    }
+    
+
+    }
+    
+
+    std::cout << "Nodes inside the List: " << openList.getLength() << '\n';
+} 
+
+void findStartNode (Env env){
+    char* arrayStartPtr = &(env[0][0]);
+        for (int row = 0; row < ENV_DIM; row++)
+        {
+            for (int col = 0; col < ENV_DIM; col++)
+            {
+                if (env[row][col] == SYMBOL_START)
+                {
+                   arrayStartPtr = &(env[row][col]);
+                }
+                
+            }
+            
+        }
+    std::cout << "This is the start pointer:" << *arrayStartPtr << '\n';
+        
 }
 
 
+// Node* findGoalNode (Env env){
+
+// }
 
 
 

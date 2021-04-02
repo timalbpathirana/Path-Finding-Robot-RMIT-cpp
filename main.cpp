@@ -89,10 +89,10 @@ void readEnvStdin(Env env){
                 std::cin >> *(arrayPtr + col);
                 }
                                 
-                std::cout << env[row][col];
+                //std::cout << env[row][col];
                 
             }
-            std::cout << '\n';
+            //std::cout << '\n';
             
             
         }
