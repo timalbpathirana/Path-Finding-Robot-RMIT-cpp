@@ -13,11 +13,6 @@ using std::cin;
 using std::endl;
 
 
-
-
-#define ROWS 20
-#define COLS 20
-
 // Helper test functions
 void testNode();
 void testNodeList();
@@ -71,8 +66,7 @@ int main(int argc, char** argv){
     // // THIS WILL ONLY WORK IF YOU'VE FINISHED MILESTONE 3
     //NodeList* solution = pathSolver->getPath(env);
 
-    //printEnv(env);
-    //printEnvStdout(env, nodeListObj);
+    //printEnvStdout(env, solution);
 
 
     // delete pathSolver;
@@ -82,62 +76,33 @@ int main(int argc, char** argv){
 }
 
 void readEnvStdin(Env env){
-  char c; 
-  
-  //std::string line;
-    std::ifstream is("input.txt");     // open file
-         // loop getting single characters
-         
-    for (int x =0; x < ENV_DIM; x++){
-        for (int y = 0; y < ENV_DIM ; y++)
-        { 
-            is.get(c);
-            env[y][x] = c;
-            std::cout << env[y][x];
 
-        }
-            
-        }
-    std::cout << std::endl;
-    is.close();
-
-// Trying to print the the nodes with '.' characters from the env[][] array.
-    // for (int row = 0; row < ROWS; row++){
-    //     for (int col = 0; col < COLS; col++){
-    //         if (env[row][col] == '.'){
-    //             std::cout << "New node  ";
-    //             std::cout << " R:" << col << " C:" << row << std::endl;
-                
-    //         }
-        
-            
-    //  }   
-     
-    // }
-}
-
-
-void printEnv(Env env){
-    for (int row = 0; row < ROWS; row++){
-        for (int col = 0; col < COLS; col++){
-            std::cout << env[row][col] << ' ';
-     }   
-     std::cout << std::endl;
-  }
+    //char env;
+    char* arrayPtr = &(env[0][0]);
     
-};
+
+        for (int row = 0; row< ENV_DIM; row++){
+            arrayPtr = &(env[row][0]);
+
+            for (int col = 0; col < ENV_DIM; col++){
+                if(!std::cin.eof()){
+                std::cin >> *(arrayPtr + col);
+                }
+                                
+                std::cout << env[row][col];
+                
+            }
+            std::cout << '\n';
+            
+            
+        }
+}
 
 void printEnvStdout(Env env, NodeList* solution) {
     //TODO
-    for (int i = 0; i < ROWS; i++)
-  {
-     for (int n = 0; n < COLS; n++)
-     {
-         std::cout << env[i][n];
-     }   
-  }
-    std::cout << std::endl;
-  
+    //solution[NODE_LIST_ARRAY_MAX_SIZE];
+
+    
 }
 
 void testNode() {
