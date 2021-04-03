@@ -45,8 +45,10 @@ private:
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     
     void findStartNode (Env env);
-   // Node* findGoalNode (Env env);
     void checkNodesPlace(char charValue, Env env);
+    void searchNodes (char* SPtr);
+    void getFastestPath(Node* goalNode);
+    char* getNodeCordinates(Env env, char name , char* chPtr);
     
 };
 

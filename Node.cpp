@@ -44,8 +44,8 @@ void Node::setDistanceTraveled(int dist_traveled)
 //getter for estimated dist to goal - need to return -> Manhatten distance + distance traveled
 int Node::getEstimatedDist2Goal(Node* goal){
 
-    int ManhattenDistance = (getCol() - goal->col) + (getRow() - goal->row);
+    int ManhattenDistance = (this->getCol() - goal->getCol()) + (this->getRow() - goal->getRow());
     int distance = dist_traveled + ManhattenDistance;
-    return distance;
+    return (distance * -1) ;
 }
                           

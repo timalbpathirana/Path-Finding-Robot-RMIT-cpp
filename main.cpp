@@ -20,7 +20,6 @@ void testNodeList();
 
 // Read a environment from standard input.
 void readEnvStdin(Env env);
-void printEnv(Env env);
 
 // Print out a Environment to standard output with path.
 // To be implemented for Milestone 3
@@ -29,10 +28,7 @@ void printEnv(Env env);
 void printEnvStdout(Env env, NodeList* solution);
 
 int main(int argc, char** argv){
-    // THESE ARE SOME EXAMPLE FUNCTIONS TO HELP TEST YOUR CODE
-    // AS YOU WORK ON MILESTONE 2. YOU CAN UPDATE THEM YOURSELF
-    // AS YOU GO ALONG.
-    // COMMENT THESE OUT BEFORE YOU SUBMIT!!!
+    
     //std::cout << "TESTING - COMMENT THE OUT TESTING BEFORE YOU SUBMIT!!!" << std::endl;
    // testNode();
    // testNodeList();
@@ -44,26 +40,16 @@ int main(int argc, char** argv){
     
     // Solve using forwardSearch
     // THIS WILL ONLY WORK IF YOU'VE FINISHED MILESTONE 2
-
-
-
-
-
     PathSolver* pathSolver = new PathSolver();
-
-    // //std::cout << "From Timal - Testing Search element" << std::endl;
-
-
     pathSolver->forwardSearch(env);
-
-
 
 
     // NodeList* exploredPositions = nullptr;
     // exploredPositions = pathSolver->getNodesExplored();
 
-    // // Get the path
-    // // THIS WILL ONLY WORK IF YOU'VE FINISHED MILESTONE 3
+    
+
+    //THIS WILL ONLY WORK IF YOU'VE FINISHED MILESTONE 3
     //NodeList* solution = pathSolver->getPath(env);
 
     //printEnvStdout(env, solution);
@@ -77,32 +63,20 @@ int main(int argc, char** argv){
 
 void readEnvStdin(Env env){
 
-    //char env;
     char* arrayPtr = &(env[0][0]);
-    
-
         for (int row = 0; row< ENV_DIM; row++){
             arrayPtr = &(env[row][0]);
-
-            for (int col = 0; col < ENV_DIM; col++){
+                for (int col = 0; col < ENV_DIM; col++){
                 if(!std::cin.eof()){
                 std::cin >> *(arrayPtr + col);
-                }
-                                
-                //std::cout << env[row][col];
-                
+                }   
             }
-            //std::cout << '\n';
-            
-            
         }
-}
+    }
 
 void printEnvStdout(Env env, NodeList* solution) {
     //TODO
-    //solution[NODE_LIST_ARRAY_MAX_SIZE];
-
-    
+     
 }
 
 void testNode() {

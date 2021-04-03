@@ -6,9 +6,10 @@
 
 //  provides a method for storing a list of node objects as used in pseudo-code above.
 // TheNodeListclass provides a method for storing a list ofNodeobjects. It stores anarrayofNodeobjects.Since it’s an array we also need to track the number of position objects in theNodeList.
-int length;
+int length = 0;
 int arraySize = 0;
 Node array[NODE_LIST_ARRAY_MAX_SIZE];
+
 
 
 NodeList::NodeList(){
@@ -43,8 +44,10 @@ void NodeList::addElement(Node* newPos){
     
     Node node(newPos->getRow(), newPos->getCol(), newPos->getDistanceTraveled());
     array[arraySize++] = node;
+    
     length++;
 }
+
 
 Node* NodeList::getNode(int i){
     
