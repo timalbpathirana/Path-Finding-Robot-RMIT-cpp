@@ -3,6 +3,9 @@
 
 #include "Types.h"
 #include "Node.h"
+#include <iostream>
+#include <vector>
+
 
 class NodeList{
 public:
@@ -32,7 +35,8 @@ public:
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
     void setLength(int length);
-    
+    void removeElement(int i);
+    int getArraySize();
 
 
 private:
@@ -46,6 +50,7 @@ private:
 
     // Number of nodes currently in the NodeList
     int length;
+    std::vector<Node> nodeListVector;
     
 
     /*                                           */

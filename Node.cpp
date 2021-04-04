@@ -2,6 +2,7 @@
 #include "Types.h"
 #include <string.h>
 #include <iostream>
+int distancee = 0;
 
 // this class is to replresenbt the position of the robot, position (col,row,distance_travelled) 
 
@@ -44,8 +45,23 @@ void Node::setDistanceTraveled(int dist_traveled)
 //getter for estimated dist to goal - need to return -> Manhatten distance + distance traveled
 int Node::getEstimatedDist2Goal(Node* goal){
 
-    int ManhattenDistance = (this->getCol() - goal->getCol()) + (this->getRow() - goal->getRow());
-    int distance = dist_traveled + ManhattenDistance;
-    return (distance * -1) ;
+    int manHDColValue;
+    int manHDRowValue;
+    int ManhattenDistance;
+    
+
+    manHDColValue = this->getCol() - goal->getCol();
+    if(manHDColValue < 0){
+        manHDColValue = manHDColValue * -1;
+    }
+    manHDRowValue = this->getRow() - goal->getRow();
+    if(manHDRowValue < 0){
+        manHDRowValue = manHDRowValue * -1;
+    }
+    
+    ManhattenDistance = manHDColValue + manHDRowValue; 
+
+    int tot = this->getDistanceTraveled() + ManhattenDistance;
+    return (tot) ;
 }
                           

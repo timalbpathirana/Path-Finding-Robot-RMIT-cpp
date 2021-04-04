@@ -27,6 +27,9 @@ public:
     // robot should travel
     // To be implemented for Milestone 3
     NodeList* getPath(Env env);
+    void selectP();
+    void findStartNode (Env env);
+    void searchNodesBeforeAdd(Env env, Node* pPtr);
 
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
@@ -43,12 +46,17 @@ private:
 
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
+    Node* startPtr = nullptr;
+    Node* goalPtr = nullptr;
+    Node* currentP = nullptr;
+
+
+    bool isNextNodeInOpenList;  
+    int minNodeIndex =0 ;
+    int distanceTravelled = 0;
+    NodeList openListArr;
+    NodeList closedListArr;
     
-    void findStartNode (Env env);
-    void checkNodesPlace(char charValue, Env env);
-    void searchNodes (char* SPtr);
-    void getFastestPath(Node* goalNode);
-    char* getNodeCordinates(Env env, char name , char* chPtr);
     
 };
 

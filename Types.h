@@ -18,6 +18,10 @@ typedef int Integer;
 #define SYMBOL_EMPTY            '.'
 #define SYMBOL_GOAL             'G'
 #define SYMBOL_START            'S'
+
+
+
+
 #define SYMBOL_EXPOSED_RIGHT    '>'
 #define SYMBOL_EXPOSED_LEFT     '<'
 #define SYMBOL_EXPOSED_TOP      '^'
