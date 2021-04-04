@@ -30,7 +30,8 @@ public:
     void selectP();
     void findStartNode (Env env);
     void searchNodesBeforeAdd(Env env, Node* pPtr);
-
+    bool isNodeOnClosedList(Node* cNPtr);
+    bool isNodeOnOpenList(Env env, char* cPtr);
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */

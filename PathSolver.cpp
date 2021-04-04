@@ -91,242 +91,34 @@ closedListArr.setLength(0);
 // Adding s to the openlist
 openListArr.addElement(startPtr);
 
-
-
-// std::cout << "OpenList Count:" << openListArr.getLength() << '\n'; 
-// std::cout << "Closed List Count:" << closedListArr.getLength() << '\n'; 
-    std::cout << '\n';
-    std::cout << "ROUND 1: " << '\n';
-    std::cout << '\n';
-
+do
+{
+        std::cout << '\n';
+        std::cout << "New Round" << '\n';
+        selectP();
+        searchNodesBeforeAdd(env, currentP);
+        closedListArr.addElement(currentP);
     
+        std::cout << "OpenList Count: " << openListArr.getArraySize() << '\n';
+        std::cout << "ClosedList Count: " << closedListArr.getArraySize() << '\n';
 
-    // std::cout << "currentP value: " << currentP << '\n';
-    // std::cout << "SelectP Method Successful" << '\n';
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-    
+} while (env[currentP->getCol()][currentP->getRow()] != env[goalPtr->getCol()][goalPtr->getRow()]);
 
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-    
-    
-    
-
-    
-    std::cout << '\n';
-    std::cout << "ROUND 2: " << '\n';
-    std::cout << '\n';
-
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-
-    
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-    
-
-    std::cout << '\n';
-    std::cout << "ROUND 3: " << '\n';
-    std::cout << '\n';
-
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-
-
-    std::cout << '\n';
-    std::cout << "ROUND 4: " << '\n';
-    std::cout << '\n';
-
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    std::cout << '\n';
-    std::cout << "ROUND 5: " << '\n';
-    std::cout << '\n';
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-
-    std::cout << '\n';
-    std::cout << "ROUND 6: " << '\n';
-    std::cout << '\n';
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-
-    std::cout << '\n';
-    std::cout << "ROUND 7: " << '\n';
-    std::cout << '\n';
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-    /* code */
-
-    std::cout << '\n';
-    std::cout << "ROUND 8: " << '\n';
-    std::cout << '\n';
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    std::cout << '\n';
-    std::cout << "ROUND 9: " << '\n';
-    std::cout << '\n';
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    std::cout << '\n';
-    std::cout << "ROUND 10: " << '\n';
-    std::cout << '\n';
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    std::cout << '\n';
-    std::cout << "ROUND 11: " << '\n';
-    std::cout << '\n';
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    std::cout << '\n';
-    std::cout << "ROUND 12: " << '\n';
-    std::cout << '\n';
-    selectP();
-    searchNodesBeforeAdd(env, currentP);
-    closedListArr.addElement(currentP);
-    std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    // std::cout << '\n';
-    // std::cout << "ROUND 13: " << '\n';
-    // std::cout << '\n';
-    // selectP();
-    // searchNodesBeforeAdd(env, currentP);
-    // closedListArr.addElement(currentP);
-    // std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    // std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    // std::cout << '\n';
-    // std::cout << "ROUND 14: " << '\n';
-    // std::cout << '\n';
-    // selectP();
-    // searchNodesBeforeAdd(env, currentP);
-    // closedListArr.addElement(currentP);
-    // std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    // std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-
-    // std::cout << '\n';
-    // std::cout << "ROUND 15: " << '\n';
-    // std::cout << '\n';
-    // selectP();
-    // searchNodesBeforeAdd(env, currentP);
-    // closedListArr.addElement(currentP);
-    // std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    // std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    // std::cout << '\n';
-    // std::cout << "ROUND 16: " << '\n';
-    // std::cout << '\n';
-    // selectP();
-    // searchNodesBeforeAdd(env, currentP);
-    // closedListArr.addElement(currentP);
-    // std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    // std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    // std::cout << '\n';
-    // std::cout << "ROUND 17: " << '\n';
-    // std::cout << '\n';
-    // selectP();
-    // searchNodesBeforeAdd(env, currentP);
-    // closedListArr.addElement(currentP);
-    // std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    // std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    // std::cout << '\n';
-    // std::cout << "ROUND 18: " << '\n';
-    // std::cout << '\n';
-    // selectP();
-    // searchNodesBeforeAdd(env, currentP);
-    // closedListArr.addElement(currentP);
-    // std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    // std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    // std::cout << '\n';
-    // std::cout << "ROUND 19: " << '\n';
-    // std::cout << '\n';
-    // selectP();
-    // searchNodesBeforeAdd(env, currentP);
-    // closedListArr.addElement(currentP);
-    // std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    // std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    // std::cout << '\n';
-    // std::cout << "ROUND 20: " << '\n';
-    // std::cout << '\n';
-    // selectP();
-    // searchNodesBeforeAdd(env, currentP);
-    // closedListArr.addElement(currentP);
-    // std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    // std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-
-    // std::cout << '\n';
-    // std::cout << "ROUND 11: " << '\n';
-    // std::cout << '\n';
-    // selectP();
-    // searchNodesBeforeAdd(env, currentP);
-    // closedListArr.addElement(currentP);
-    // std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    // std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-    
-    // do
+    // for (int i = 0; i < 20; i++)
     // {
     //     std::cout << '\n';
-    //     std::cout << "NEW ROUND: " << '\n';
+    //     std::cout << "ROUND:"<< i << '\n';
+    //     std::cout << '\n';
     //     selectP();
+        
     //     searchNodesBeforeAdd(env, currentP);
     //     closedListArr.addElement(currentP);
-    //     std::cout << "OpenList Count: " << openListArr.getLength() << '\n';
-    //     std::cout << "ClosedList Count: " << closedListArr.getLength() << '\n';
-        
-    // } while (env[currentP->getCol()][currentP->getRow()] != SYMBOL_GOAL);
     
-
-
-
-
-
-
-
-
+    //     std::cout << "OpenList Count: " << openListArr.getArraySize() << '\n';
+    //     std::cout << "ClosedList Count: " << closedListArr.getArraySize() << '\n';
+    // }
+    
+    
 
 }
 
@@ -338,153 +130,138 @@ openListArr.addElement(startPtr);
 // Selecting the simple p
 
 void PathSolver::selectP(){
-    //std::cout << "Select P method Triggered" << '\n';
-int distance  = INFINITY;
+
+
 int rounds = openListArr.getArraySize();
 
 for (int y = 0; y < rounds; y++){
+    int distance  = 100;
     
         for (int i = 0; i < openListArr.getArraySize(); i++){
             
             if (openListArr.getNode(i)->getEstimatedDist2Goal(goalPtr) < distance) {
                 distance = openListArr.getNode(i)->getEstimatedDist2Goal(goalPtr);
                 minNodeIndex = i;
+                
             }
         }
-        //std::cout << "SelectP FFL Done" << '\n';
-
 // Cannot put in the same loop as above for loop needs to finish to the final value for minNodeIndex
-        for (int i = 0; i < closedListArr.getLength(); i++){
-            if (openListArr.getNode(minNodeIndex) ==            closedListArr.getNode(i)){
-               
+        for (int i = 0; i < closedListArr.getArraySize(); i++){
+            if ((openListArr.getNode(minNodeIndex)->getCol() == closedListArr.getNode(i)->getCol()) && (openListArr.getNode(minNodeIndex)->getRow() == closedListArr.getNode(i)->getRow())){
+               //openListArr.removeElement(minNodeIndex);
+               minNodeIndex = i + 1;
             }   
     
         }
-        //std::cout << "SelectP SFL Done" << '\n';
-
     }
 
-    // Node* pNode = new Node(openListArr.getNode(minNodeIndex)->getRow(), openListArr.getNode(minNodeIndex)->getCol(), 1);
-    
-    //std::cout << "Min Distance: " << distance << "\n";
     currentP = openListArr.getNode(minNodeIndex);
-    //currentP = &pNode;
 
-    
-    std::cout << "p Selection Successfull" << '\n';
     std::cout << "p Node Col:Row "<< currentP->getCol() << ':'<< currentP->getRow() << '\n';
     //std::cout << "Returning P Node pointer: " << pNode <<'\n';
-
 }
 
+// bool PathSolver::isNodeOnClosedList(Node* closePtr){
+
+//     bool closeX= true; 
+
+    
+//     for (int i = 0; i < closedListArr.getArraySize(); i++)
+//     {
+//         if ( closedListArr.getNode(i) == closePtr)
+//         {
+//            closeX = false;
+//            std::cout << "FALSE TRIGGERED" << '\n';
+
+//         }
+        
+//     }
+//     return closeX;
+    
+// }
 
 
+bool PathSolver::isNodeOnOpenList(Env env, char* cPtr){
 
-
-
-
+    bool openx= false; 
+    for (int i = 0; i < openListArr.getArraySize(); i++)
+    {
+        if (&(env[openListArr.getNode(i)->getCol()][openListArr.getNode(i)->getRow()]) == cPtr)
+        {
+           openx= true;
+        }
+        
+    }
+    return openx;
+    
+}
 
 void PathSolver::searchNodesBeforeAdd(Env env, Node* pPtr){
 
 // Check for the Right node and also check if its available in the open list and If not, add to open list 
 
-if(env[pPtr->getCol()][pPtr->getRow()+ 1] == SYMBOL_EMPTY){
-    
-    
-    for (int i = 0; i < openListArr.getArraySize(); i++)
-    {
-        if (&(env[pPtr->getCol()][pPtr->getRow()+ 1]) == &(env[openListArr.getNode(i)->getCol()][openListArr.getNode(i)->getRow()]))
-        {
-           isNextNodeInOpenList = true;
-        }
-        else{
-            isNextNodeInOpenList = false;
-        }
-        
+if(env[pPtr->getCol()][pPtr->getRow()+ 1] == SYMBOL_EMPTY || env[pPtr->getCol()][pPtr->getRow()+ 1] == SYMBOL_GOAL){
+
+    Node* rightNode = new Node(pPtr->getRow()+ 1,pPtr->getCol(),distanceTravelled + 1);
+
+    if(isNodeOnOpenList(env, &(env[pPtr->getCol()][pPtr->getRow()+ 1])) == false){
+        openListArr.addElement(rightNode);
     }
-    if(!isNextNodeInOpenList){
-        
-        Node* nextNode = new Node(pPtr->getRow()+ 1,pPtr->getCol(),distanceTravelled + 1);
-        openListArr.addElement(nextNode);
-        std::cout << "Right Element -> Open List" << '\n';
-        
+    else{
+        delete rightNode;
     }
     std::cout << "Right Triggered" << '\n';
   
 }
 
 // Check for the Left node and also check if its available in the open list and If not, add to open list 
-if(env[pPtr->getCol()][pPtr->getRow()- 1] == SYMBOL_EMPTY)  {
+if(env[pPtr->getCol()][pPtr->getRow()- 1] == SYMBOL_EMPTY || env[pPtr->getCol()][pPtr->getRow()- 1] == SYMBOL_GOAL)  {
     
-    for (int i = 0; i < openListArr.getLength(); i++)
-    {
-        if (&(env[pPtr->getCol()][pPtr->getRow()- 1]) == &(env[openListArr.getNode(i)->getCol()][openListArr.getNode(i)->getRow()]))
-        {
-           isNextNodeInOpenList = true;
-        }
-        else{
-            isNextNodeInOpenList = false;
-        }
-        
+    Node* leftNode = new Node(pPtr->getRow()- 1,pPtr->getCol(), distanceTravelled + 1);
+
+
+    if(isNodeOnOpenList(env, &(env[pPtr->getCol()][pPtr->getRow()- 1])) == false){
+        openListArr.addElement(leftNode);
     }
-    if(!isNextNodeInOpenList){
-        Node* nextNode = new Node(pPtr->getRow()- 1,pPtr->getCol(), distanceTravelled+ 1);
-        openListArr.addElement(nextNode);
-        std::cout << "Left Element -> Open List" << '\n';
-        
+    else{
+        delete leftNode;
     }
     std::cout << "Left Triggered" << '\n';
     
 }
 
+// Check for the Down node and also check if its available in the open list and If not, add to open list 
+if(env[pPtr->getCol() + 1][pPtr->getRow()] == SYMBOL_EMPTY || env[pPtr->getCol() + 1][pPtr->getRow()] == SYMBOL_GOAL)  {
+    
+    Node* downNode = new Node(pPtr->getRow(),pPtr->getCol() + 1, distanceTravelled + 1);
+
+    if(isNodeOnOpenList(env,&(env[pPtr->getCol() + 1][pPtr->getRow()])) == false){
+        openListArr.addElement(downNode);
+    }
+    else{
+        delete downNode;
+    }
+
+    std::cout << "Down Triggered" << '\n';
+    
+}
+
 // Check for the Up node and also check if its available in the open list and If not, add to open list 
-if(env[pPtr->getCol() - 1][pPtr->getRow()] == SYMBOL_EMPTY)  {
+if(env[pPtr->getCol() - 1][pPtr->getRow()] == SYMBOL_EMPTY || env[pPtr->getCol() - 1][pPtr->getRow()] == SYMBOL_GOAL)  {
     
-    for (int i = 0; i < openListArr.getLength(); i++)
-    {
-        if (&(env[pPtr->getCol() - 1][pPtr->getRow()]) == &(env[openListArr.getNode(i)->getCol()][openListArr.getNode(i)->getRow()]))
-        {
-           isNextNodeInOpenList = true;
-        }
-        else{
-            isNextNodeInOpenList = false;
-        }
-        
+    Node* upNode = new Node(pPtr->getRow(),pPtr->getCol() - 1, distanceTravelled + 1);
+
+    if(isNodeOnOpenList(env, &(env[pPtr->getCol() - 1][pPtr->getRow()])) == false){
+        openListArr.addElement(upNode);
     }
-    if(!isNextNodeInOpenList){
-        Node* nextNode = new Node(pPtr->getRow(),pPtr->getCol() - 1, distanceTravelled + 1);
-        openListArr.addElement(nextNode);
-        std::cout << "Up Element -> Open List" << '\n';
-        
+    else{
+        delete upNode;
     }
-    
     std::cout << "Up Triggered" << '\n';
     
 }
 
-// Check for the Down node and also check if its available in the open list and If not, add to open list 
-if(env[pPtr->getCol() + 1][pPtr->getRow()] == SYMBOL_EMPTY)  {
-    
-    for (int i = 0; i < openListArr.getLength(); i++)
-    {
-        if (&(env[pPtr->getCol() + 1][pPtr->getRow()]) == &(env[openListArr.getNode(i)->getCol()][openListArr.getNode(i)->getRow()]))
-        {
-           isNextNodeInOpenList = true;
-        }
-        else{
-            isNextNodeInOpenList = false;
-        }
-        
-    }
-    if(!isNextNodeInOpenList){
-        Node* nextNode = new Node(pPtr->getRow(),pPtr->getCol() + 1, distanceTravelled + 1);
-        openListArr.addElement(nextNode);
-        std::cout << "Down Element -> Open List" << '\n';
-    }
-    
-    std::cout << "Down Triggered" << '\n';
-    
-}
+
 distanceTravelled++;
 } 
     
