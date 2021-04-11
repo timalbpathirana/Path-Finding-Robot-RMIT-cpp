@@ -34,9 +34,7 @@ public:
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
-    void setLength(int length);
     void removeElement(int i);
-    int getArraySize();
 
 
 private:
@@ -50,7 +48,8 @@ private:
 
     // Number of nodes currently in the NodeList
     int length;
-    std::vector<Node> nodeListVector;
+    Node nodeListArray[NODE_LIST_ARRAY_MAX_SIZE];
+
     
 
     /*                                           */

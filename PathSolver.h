@@ -30,8 +30,8 @@ public:
     void selectP();
     void findStartNode (Env env);
     void searchNodesBeforeAdd(Env env, Node* pPtr);
-    bool isNodeOnClosedList(Node* cNPtr);
-    bool isNodeOnOpenList(Env env, char* cPtr);
+    bool searchCloseListByChar(Env env, char* cPtr);
+    bool isNotOnClosedList(Node* nodePtr);
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
@@ -51,13 +51,11 @@ private:
     Node* goalPtr = nullptr;
     Node* currentP = nullptr;
 
-
-    bool isNextNodeInOpenList;  
+    bool isNextNodeInOpenList;
     int minNodeIndex =0 ;
     int distanceTravelled = 0;
     NodeList openListArr;
     NodeList closedListArr;
-    
     
 };
 
