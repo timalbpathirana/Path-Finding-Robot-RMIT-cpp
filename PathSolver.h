@@ -30,7 +30,6 @@ public:
     void selectP();
     void findStartNode (Env env);
     void searchNodesBeforeAdd(Env env, Node* pPtr);
-    bool searchCloseListByChar(Env env, char* cPtr);
     bool isNotOnClosedList(Node* nodePtr);
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */

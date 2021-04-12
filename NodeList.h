@@ -48,7 +48,7 @@ private:
 
     // Number of nodes currently in the NodeList
     int length;
-    Node nodeListArray[NODE_LIST_ARRAY_MAX_SIZE];
+    Node* nodeListArray[NODE_LIST_ARRAY_MAX_SIZE];
 
     
 

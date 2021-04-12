@@ -5,6 +5,7 @@
 #include <vector>
 
 int length;
+
 /*
 
 provides a method for storing a list of node objects as used in pseudo-code above.
@@ -15,8 +16,8 @@ TheNodeListclass provides a method for storing a list ofNodeobjects. It stores a
 //int jimmy [3][5];   // is equivalent to
 //int jimmy [15];     // (3 * 5 = 15)  
 
-Node nodeListArray[NODE_LIST_ARRAY_MAX_SIZE];
-
+// This below code actually makes an array of nodes pointers 
+Node* nodeListArray[NODE_LIST_ARRAY_MAX_SIZE];
 
 
 NodeList::NodeList(){
@@ -49,10 +50,12 @@ int NodeList::getLength(){
 void NodeList::addElement(Node* newPos){
     // need to create a new node object
     
-    Node node(newPos->getRow(), newPos->getCol(), newPos->getDistanceTraveled());
+    Node* newNodePtr = new Node(newPos->getRow(), newPos->getCol(), newPos->getDistanceTraveled());
+    //Node* newNodePtr = &node;
     // Making sure nodes will never go beyond the end of the array.
     if(length < NODE_LIST_ARRAY_MAX_SIZE){
-        nodeListArray[length] = node;
+        // Node& nodeRef = node;
+        nodeListArray[length] = newNodePtr;
     //nodeListVector.push_back(node);
         length = length + 1;
     } 
@@ -73,7 +76,7 @@ void NodeList::removeElement(int i){
 Node* NodeList::getNode(int i){
     
     //returning the memory address of the i th Node,
-    return &nodeListArray[i];
+    return nodeListArray[i];
     
 }
 
