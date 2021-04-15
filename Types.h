@@ -21,11 +21,16 @@ typedef int Integer;
 
 
 
+// Added symbol defines for M3
+#define SYMBOL_RIGHT    '>'
+#define SYMBOL_LEFT     '<'
+#define SYMBOL_TOP      '^'
+#define SYMBOL_BOTTOM   'v'
 
-#define SYMBOL_EXPOSED_RIGHT    '>'
-#define SYMBOL_EXPOSED_LEFT     '<'
-#define SYMBOL_EXPOSED_TOP      '^'
-#define SYMBOL_EXPOSED_BOTTOM   '$'
+
+
+// Changes for M4
+//typedef char** Env;
 
 #endif // COSC_ASSIGN_ONE_TYPES
 

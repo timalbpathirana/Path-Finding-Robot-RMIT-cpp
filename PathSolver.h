@@ -27,13 +27,17 @@ public:
     // robot should travel
     // To be implemented for Milestone 3
     NodeList* getPath(Env env);
+    
+    /*                                           */
+    /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
+    /*                                           */
+
     void selectP();
     void findStartNode (Env env);
     void searchNodesBeforeAdd(Env env, Node* pPtr);
     bool isNotOnClosedList(Node* nodePtr);
-    /*                                           */
-    /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
-    /*                                           */
+    void searchNodesToGetPath(Env env, Node* nPtr);
+
 
 private:
     /*                                           */
@@ -46,15 +50,21 @@ private:
 
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
+
+    // Creating all the global varibles and pointers and initialising them
     Node* startPtr = nullptr;
     Node* goalPtr = nullptr;
     Node* currentP = nullptr;
+    NodeList* closedListDeepCopyPtr = nullptr;
 
     bool isNextNodeInOpenList;
     int minNodeIndex =0 ;
     int distanceTravelled = 0;
-    NodeList openListArr;
-    NodeList closedListArr;
+
+    // Making node objects to create openlist array and closedlist array
+    NodeList* openListArr = new NodeList();
+    NodeList* closedListArr = new NodeList();
+    
     
 };
 

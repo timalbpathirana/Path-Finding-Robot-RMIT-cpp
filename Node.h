@@ -29,7 +29,8 @@ public:
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
-   Node();
+    Node();
+    Node(Node &other);
 
 
 private:

@@ -1,16 +1,36 @@
+/*
+short 1-paragraph description. 
+For M1 and M2, I first tried to read the maze correctly into the 2D array and then printed that out to make sure I read that correctly. Then I searched for S node and G node and made pointers to those 2 positions. I made 2 objects from the NodeList class to get 2 arrays( Openlist and closeList). Then I added the S node to the open list before I start the search for neighbours. Then I started the search and add the neighbour nodes only if they are NOT inside the closed list. And then I add the current node to the closed list. So this untill I reach the G node. 
+
+Then I copied the closed list using copy constructor and use that to filtered the nodes for backtracking. To filteration, I used the distance travelled paramter to get the L-1, L-2 etc nodes. Then I made another nodelist object and I reversed the nodes inside the copied array and add to the new array. 
+
+For M3 last part, I simply used if statements to check the next node, and if the next node going right, left, up or down, I added the symboles accordinly. 
+
+ISSUES I HAVE ENCOUNTERED:
+1. Got heaps of segmentation faults. 
+2. Maze array printed in unexpected ways and missing some characters or sometimes a half of the bottom line
+3. Sometimes made duplicate methods which do basically the same thing.
+4. Issues with how to use the copy constructor.
+5. pointer being freed was not allocated error.
+
+Online materials I have used,
+1. https://www.guru99.com/cpp-dynamic-array.html#4
+2. https://stackoverflow.com/questions/34168053/reverse-array-pointer-in-c
+3. https://www.geeksforgeeks.org/program-reverse-array-using-pointers/
+4. https://stackoverflow.com/questions/7935603/c-pointer-being-freed-was-not-allocated-error
+5. http://www.cplusplus.com/forum/beginner/219983/
+6. http://www.cplusplus.com/doc/tutorial/arrays/
+
+*/
+
+
 #include <iostream>
-#include <fstream>
-#include <stdexcept>
 #include <string>
 
 #include "Types.h"
 #include "Node.h"
 #include "NodeList.h"
 #include "PathSolver.h"
-
-using std::cout;
-using std::cin;
-using std::endl;
 
 
 // Helper test functions
@@ -30,8 +50,12 @@ void readEnvStdin(Env env);
 // Print out a Environment to standard output with path.
 // To be implemented for Milestone 3
 
-
 void printEnvStdout(Env env, NodeList* solution);
+
+
+
+
+
 
 int main(int argc, char** argv){
 
@@ -39,34 +63,33 @@ int main(int argc, char** argv){
     Env env;
     readEnvStdin(env);
 
+    // std::cout << "TESTING STARTED" << std::endl << std::endl;
+
     //createNewNode();
     //changeNode();
     //testEstimatedDistance();
     //testNodeListFunctions();
     //printTheArray (env);
 
-   // std::cout << "DONE TESTING" << std::endl << std::endl;
+    // std::cout << "DONE TESTING" << std::endl << std::endl;
 
-    // Solve using forwardSearch
-
+    // Milestone 1 and 2;
     PathSolver* pathSolver = new PathSolver();
     pathSolver->forwardSearch(env);
-
-
-    // NodeList* exploredPositions = nullptr;
-    // exploredPositions = pathSolver->getNodesExplored();
-
-    
-
-    //THIS WILL ONLY WORK IF YOU'VE FINISHED MILESTONE 3
-    //NodeList* solution = pathSolver->getPath(env);
-
-    //printEnvStdout(env, solution);
-
-
     delete pathSolver;
-    // delete exploredPositions;
-    // delete solution;
+
+    // Milestone 2;
+    NodeList* exploredPositions = nullptr;
+    exploredPositions = pathSolver->getNodesExplored();
+    
+    // Milestone 3;
+    NodeList* solution = pathSolver->getPath(env);    
+ 
+    // Milestone 3;
+    printEnvStdout(env, solution);
+
+    delete exploredPositions;
+    delete solution;
 
 }
 
@@ -78,20 +101,67 @@ void readEnvStdin(Env env){
                 for (int col = 0; col < ENV_DIM; col++){
                 if(!std::cin.eof()){
                 std::cin >> *(arrayPtr + col);
-                }   
+                }  
+                else{
+                    
+                } 
             }
         }
     }
 
 void printEnvStdout(Env env, NodeList* solution) {
-    //TODO
-     
+
+
+
+for (int i = 0; i < solution->getLength() - 1; i++)
+{
+     if (solution->getNode(i+1)->getCol() > solution->getNode(i)->getCol() && 
+     env[solution->getNode(i+1)->getRow()][solution->getNode(i+1)->getCol() != SYMBOL_GOAL]){
+         
+        // then node 1 should be on right side >
+        env[solution->getNode(i+1)->getRow()][solution->getNode(i+1)->getCol()] = SYMBOL_RIGHT;
+        // std::cout << "Right works" << '\n';
+    }
+    
+    if (solution->getNode(i+1)->getCol() < solution->getNode(i)->getCol() && env[solution->getNode(i+1)->getRow()][solution->getNode(i+1)->getCol()] != SYMBOL_GOAL)
+    {
+        // then node 1 should be on left side <
+        env[solution->getNode(i+1)->getRow()][solution->getNode(i+1)->getCol()] = SYMBOL_LEFT;
+        // std::cout << "left works" << '\n';
+    }
+    
+    if (solution->getNode(i +1)->getRow() > solution->getNode(i)->getRow() && env[solution->getNode(i +1)->getRow()][solution->getNode(i +1)->getCol()] != SYMBOL_GOAL)
+    {
+        // then node 1 should be down v
+        
+        env[solution->getNode(i+1)->getRow()][solution->getNode(i+1)->getCol()] = SYMBOL_BOTTOM;
+        // std::cout << "down works" << '\n';
+    }
+    
+    if (solution->getNode(i +1)->getRow() < solution->getNode(i)->getRow() && env[solution->getNode(i +1)->getRow()][solution->getNode(i +1)->getCol()] != SYMBOL_GOAL)
+    {
+        // then node 1 should be up ^
+        env[solution->getNode(i+1)->getRow()][solution->getNode(i+1)->getCol()] = SYMBOL_TOP;
+        // std::cout << "up works" << '\n';
+
+    }
 }
+
+for (int row = 0; row < ENV_DIM; row++){
+    for (int col = 0; col < ENV_DIM; col++){
+        std::cout << env[row][col];
+    }
+    std::cout << '\n';
+    
+    } 
+
+}
+
 
 void createNewNode() {
     int row,col,distance;
 
-    // We are testing these edge cases for int
+    //testing these edge cases for int
     /*
     1. Int being Zero
     2. Int being 1

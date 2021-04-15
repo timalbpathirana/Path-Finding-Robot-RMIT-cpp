@@ -19,6 +19,11 @@ Node::Node(){}
 
 Node::~Node(){}   
 
+Node::Node(Node &other){
+   
+    
+}
+
 int Node::getRow(){
     return row;
 }

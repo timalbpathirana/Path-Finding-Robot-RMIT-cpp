@@ -4,7 +4,7 @@
 #include <iostream> 
 #include <vector>
 
-int length;
+int length = 0;
 
 /*
 
@@ -19,9 +19,7 @@ TheNodeListclass provides a method for storing a list ofNodeobjects. It stores a
 // This below code actually makes an array of nodes pointers 
 Node* nodeListArray[NODE_LIST_ARRAY_MAX_SIZE];
 
-
 NodeList::NodeList(){
-    length = 0;
 }
 
 NodeList::~NodeList(){
@@ -29,9 +27,13 @@ NodeList::~NodeList(){
 }
 
 // making a deep copy
-NodeList::NodeList(NodeList &other){
-    // TODO
-
+NodeList::NodeList(NodeList& other){
+    for (int i = 0; i < other.getLength(); i++)
+    {
+        nodeListArray[i] = other.getNode(i);
+        length = other.getLength();
+    }
+    
 }
 
 // Number of nodes currently in the NodeList
