@@ -1,0 +1,8 @@
+OpenList size: 0
+ClosedList size: 0
+OpenList size: 1
+OpenList size: 2
+2,2,1
+CloseList size: 1
+OpenList size: 1
+2,2,1
